@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+    </parent>
+    <groupId>com.dayuwuxian.matrix.content</groupId>
+    <artifactId>matrix-content</artifactId>
+    <version>1.0.79-SNAPSHOT</version>
+    <name>matrix-content</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <protobuf.java.version>3.7.1</protobuf.java.version>
+        <matrix.deadlink.version>1.0.1 </matrix.deadlink.version>
+        <matrix.spring.common.version>1.0.37</matrix.spring.common.version>
+        <matrix.common.version>0.0.9</matrix.common.version>
+        <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
+        <elasticsearch.version>7.4.0</elasticsearch.version>
+    </properties>
+
+    <modules>
+        <module>matrix-music-common</module>
+        <module>matrix-music-entity</module>
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!--spring-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--protobuf-->
+            <dependency>
+                <groupId>com.googlecode.protobuf-java-format</groupId>
+                <artifactId>protobuf-java-format</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <!--aws-->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk</artifactId>
+                <version>1.11.156</version>
+            </dependency>
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>amazon-sqs-java-messaging-lib</artifactId>
+                <version>1.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>1.11.614</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--caffeine-->
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>guava</artifactId>
+                <version>2.8.0</version>
+            </dependency>
+            <!--elasticsearch-->
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>7.4.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>7.4.0</version>
+            </dependency>
+            <!--monitor-->
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-registry-prometheus</artifactId>
+                <version>1.3.3</version>
+            </dependency>
+            <!--tools-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>2.8.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.http-client</groupId>
+                <artifactId>google-http-client</artifactId>
+                <version>1.35.0</version>
+            </dependency>
+            <!--dayuwuxian-->
+            <dependency>
+                <groupId>com.dayuwuxian.matrix</groupId>
+                <artifactId>matrix-deadlink-client</artifactId>
+                <version>${matrix.deadlink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dayuwuxian.matrix</groupId>
+                <artifactId>matrix-spring-common</artifactId>
+                <version>${matrix.spring.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dayuwuxian.matrix</groupId>
+                <artifactId>matrix-common</artifactId>
+                <version>${matrix.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dayuwuxian.matrix.content</groupId>
+                <artifactId>matrix-music-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dayuwuxian.matrix.content</groupId>
+                <artifactId>matrix-music-entity</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dayuwuxian.matrix.content</groupId>
+                <artifactId>matrix-music-mysql</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dayuwuxian.matrix.content</groupId>
+                <artifactId>matrix-music-content-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <scm>
+        <connection>scm:git:git@gitlab.mobiuspace.net:mobiuspace/be-team/matrix-content</connection>
+        <developerConnection>scm:git:git@gitlab.mobiuspace.net:mobiuspace/be-team/matrix-content
+        </developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>deploy</id>
+            <name>em lib release repo</name>
+            <url>http://mvn.snappea.com/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>deploy</id>
+            <name>em lib snapshot repo</name>
+            <url>http://mvn.snappea.com/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>
